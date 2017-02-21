@@ -1,0 +1,487 @@
+/* GLOBAL */
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/* IDs */
+
+#icon {
+    margin-left: 0px;
+    transition-property: all;
+    transition-duration: .5s;
+}
+
+.side-container {
+    vertical-align: top;
+    display: inline-block;
+    width: 224px;
+} 
+
+#overlays {
+    display:none; 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
+    background-color: 
+    rgba(0,0,0,0.5); 
+    z-index: 200;
+}
+
+#title {
+    padding: 10px;
+}
+
+#canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#connecting {
+    display:none;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
+    z-index: 100; 
+    background-color: rgba(0,0,0,0.5);
+}
+
+#nick {
+    width: 65%;
+    float: left;
+}
+
+#gamemode {
+    width: 33%;
+    float: right;
+}
+
+#helloDialog {
+    width: 400px;
+    background-color: rgb(51, 51, 51);
+    margin: 10px auto;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#chat_textbox {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    background: rgba(0, 0, 0, .2);
+    border: 0px;
+    outline: none;
+    color: #FFF;
+    height: 30px;
+    text-indent: 12px;
+    left: 10px;
+    width: 300px;
+}
+
+#chat_textbox:focus {
+    background: rgba(0, 0, 0, .5);
+}
+
+#footer {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+#play-btn {
+    width: 320px;
+    height: 50px;
+    float: left;
+}
+
+#upload-btn {
+    width: 150px;
+    height: 50px;
+    float: right;
+}
+
+
+#toggle-btn {
+    width: 60px;
+    height: 30px;
+    float: right;
+}
+#stream-btn {
+    width: 60px;
+    height: 30px;
+    float: left;
+}
+
+#settings-btn {
+    width: 13%;
+    float: right;
+}
+
+#spectate-btn {
+    margin-top: -5px;
+}
+
+/* CLASSES */
+
+.checkbox label {
+    margin-right: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+.center {
+    display: table;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+      .btn-dailyquests,
+      .btn-freecoins,
+      .btn-gifting,
+      .btn-login,
+      .btn-login-play,
+      .btn-logout,
+      .btn-play,
+      .btn-play-guest,
+      .btn-settings,
+      .btn-shop,
+      .btn-spectate {
+      display: block;
+      float: left;
+      height: 35px;
+      font-weight: 700
+      }
+      .btn-dailyquests,
+      .btn-freecoins,
+      .btn-gifting {
+      width: 100%;
+      height: 35px
+      }
+      .btn-gifting,
+      .btn-gifting:active,
+      .btn-gifting:focus {
+      background-color: #1f6ce8;
+      border-color: #1f6ce8
+      }
+      .btn-gifting:hover {
+      background-color: #1a50a7;
+      border-color: #1a50a7
+      }
+      .btn-dailyquests,
+      .btn-dailyquests:active,
+      .btn-dailyquests:focus {
+      background-color: #FFC300;
+      border-color: #FFC300
+      }
+      .btn-dailyquests:hover {
+      background-color: #b08600;
+      border-color: #b08600
+      }
+      .btn-logout,
+      .btn-spectate {
+      height: 35px;
+      display: block;
+      width: 110px;
+      margin-left: 10px;
+      margin-bottom: 5px
+      }
+      .btn-login {
+      position: relative;
+      width: 100%
+      }
+      .btn-login .btn-text {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 42px;
+      padding-right: 42px
+      }
+      .btn-login-play {
+      background: #eea236
+      }
+      .btn-login-play,
+      .btn-play-guest {
+      margin-left: 5px;
+      width: 135px
+      }
+      .louisagar-wallet-container {
+      width: 100%;
+      border: 1px solid #4db800;
+      height: 32px;
+      border-radius: 6px;
+      position: relative;
+      cursor: pointer
+      }
+      .louisagar-wallet-container .louisagar-wallet-currency {
+      position: absolute;
+      right: 35px;
+      top: 6px
+      }
+      .louisagar-wallet-container .louisagar-wallet-plus {
+      width: 30px;
+      right: 0;
+      background: #60e200;
+      height: 100%;
+      border-radius: 5px;
+      position: absolute;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0
+      }
+      .louisagar-wallet-container .louisagar-wallet-plus span {
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+      display: block;
+      line-height: 30px
+      }
+      .louisagar-wallet-container .louisagar-wallet-label {
+      position: absolute;
+      text-align: right;
+      font-weight: 700;
+      line-height: 32px;
+      width: 60px;
+	  color: #FFF;
+      height: 30px;
+      font-size: 13px
+      }
+      .louisagar-profile-panel {
+      padding: 15px;
+      float: right
+      }
+      .louisagar-profile-panel .louisagar-profile-picture {
+      cursor: pointer;
+      float: left;
+      display: block;
+      width: 64px;
+      height: 64px;
+      border-radius: 5px;
+      border: 2px solid #CCC;
+      margin-right: 6px
+      }
+      .louisagar-profile-panel .louisagar-profile-name-container {
+      float: left;
+      display: table;
+      width: 120px;
+      height: 64px;
+      position: relative
+      }
+      .louisagar-profile-panel .louisagar-profile-name-container .louisagar-profile-name {
+      vertical-align: middle;
+      margin-top: 10px;
+      text-align: center;
+	  color: #FFF;
+      font-weight: 700
+      }
+      .progress-bar-star {
+      display: block
+      }
+      .louisagar-panel {
+      display: inline-block;
+      width: 350px;
+      background-color: rgb(51, 51, 51);
+      margin: 2px;
+      border-radius: 10px;
+      padding: 5px 15px;
+      vertical-align: top
+      }
+      .louisagar-panel.offerwall {
+      z-index: 301;
+      position: absolute;
+      width: 90%;
+      max-width: 1070px;
+      height: 90%;
+      max-height: 800px;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate("-50%", "-50%");
+      -webkit-transform: translate("-50%", "-50%");
+      left: 50%;
+      top: 50%
+      }
+      #offerwallIframeWrapper {
+      position: absolute;
+      top: 30px;
+      bottom: 15px;
+      left: 15px;
+      right: 15px
+      }
+      #offerwallIframe {
+      height: 100%;
+      width: 100%;
+      border: 0;
+      padding: 0
+      }
+      .louisagar-side-panel {
+      display: inline-block;
+      width: 220px
+      }
+      .louisagar-panel-dailyquests,
+      .louisagar-panel-freecoins,
+      .louisagar-panel-gifting {
+      float: right;
+      padding: 15px
+      }
+      .connecting-panel {
+      margin: auto;
+      margin-left: -175px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%
+      }
+      #adbg {
+      width: 300px;
+      height: 250px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center
+      }
+      .louisagar-exp-bar {
+      height: 30px;
+      position: relative;
+      border: 2px solid #01612B
+      }
+      .louisagar-exp-bar .progress-bar {
+      background-color: #383;
+      border-radius: 0 4px 4px 0;
+      -webkit-transition: none;
+      transition: none
+      }
+      .louisagar-exp-bar .progress-bar-text {
+      font-size: 12pt;
+      cursor: default;
+      opacity: .75;
+      color: #FFF;
+      text-align: center;
+      line-height: 26px;
+      text-shadow: 0 0 3px #000, -1px 0 0 #000, 1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, -1px -1px 0 #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-family: Ubuntu, sans-serif
+      }
+      #louisagar-results-table {
+      width: 100%
+      }
+      #louisagar-results-table th {
+      text-align: center;
+      font-size: 8pt
+      }
+      #louisagar-results-table td {
+      text-align: center;
+      color: #999;
+      font-size: 11pt;
+      padding-bottom: 15px
+      }
+      #leftPanel,
+      #mainPanel,
+      #rightPanel {
+      position: relative;
+      opacity: 0;
+      cursor: pointer
+      }
+      #leftPanel {
+      cursor: default
+      }
+      #updatingPanel {
+      position: relative;
+      opacity: 0;
+      cursor: pointer;
+      width: 350px;
+      height: 268px;
+      display: none
+      }
+      #louisagar-web-incentive,
+      .louisagar-promo,
+      .diep-cross {
+      cursor: default
+      }
+      #louisagar-web-incentive a,
+      .louisagar-promo a,
+      .diep-cross a {
+      cursor: pointer
+      }
+      .disable-mouse {
+      pointer-events: none
+      }
+      .progress-bar-star {
+      position: absolute;
+      top: -13px;
+      right: -16px;
+      width: 50px;
+      height: 50px;
+      background-image: url(http://agar.io/img/star.png);
+      background-size: cover;
+      -webkit-transform: rotate3d(0, 0, 1, 10deg);
+      transform: rotate3d(0, 0, 1, 10deg);
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+      cursor: default;
+      color: #FFF;
+      text-align: center;
+      line-height: 55px;
+      font-size: 12pt;
+      text-shadow: 0 0 3px #000, -1px 0 0 #000, 1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, -1px -1px 0 #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
+      font-family: Ubuntu, sans-serif
+      }
+      .tooltip-inner {
+      max-width: 300px
+      }
+      .louisagar-shop-panel {
+      padding: 15px;
+      float: right
+      }
+      .shop-blocker {
+      position: absolute;
+      background: #fff;
+      top: 80px;
+      bottom: 0;
+      left: 28px;
+      right: 2px;
+      z-index: 2;
+      opacity: .9;
+      border-radius: 10px
+      }
+
